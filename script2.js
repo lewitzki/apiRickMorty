@@ -1,35 +1,40 @@
-let arrayPokemons;
+let arrayCharacters = [];
 
+function getCharacters() { 
+    fetch("https://rickandmortyapi.com/api/character/?page=19",
+        {
+            method: "GET",
 
-function getPokemon() {
-   fetch("https://pokeapi.co/pi/v2/pokemon",
-   {
-      method: "GET",
-   }
-)
-.then((response) => response.json())
-.then((data) => {
-   arrayPokemons = data.results;
-   appendPokemons(arrayPokemons);
-})
-.catch((error) => {
-   console.error ("error",error);
-})
+        }
+    )
+    .then((response) => response.json())
+    .then((data)=> {
+        arrayCharacters = data.results;
+        appendCharacters(arrayCharacters);   
+        
+    })
+    .catch((error) =>{
+        console.error("error", error);
+    });
 }
 
-getPokemon();
+getCharacters();
 
-function appendPokemons(pokemons) {
-   let place = document.querySelector("#data-output");
-   let out = "";
+function appendCharacters(Characters) {
+    let place = document.querySelector("#data-output");
+    let out = "";
 
-   for (let pokemon of pokemons) {
-      out += `
-      <tr>
-         <td>${pokemon.name}</td>
-         <td>${pokemon.url}</td>
-      <tr>
-      `;
-   }
-   place.innerHTML = out;
+    for (let Character of Characters) {
+        out += `<ul>
+                    <img src="${Character.image}" alt="">
+                    <li> Nome: ${Character.name}</li>
+                    <li> Status: ${Character.status}</li>
+                    <li> Espécie:  ${Character.species}</td>
+                    <li> Gênero: ${Character.gender}</li>
+                    <li> Origem: ${Character.origin.name}</li>
+                    <li> Localização: ${Character.location.name}</li>
+                </ul>
+            `;
+    }
+    place.innerHTML = out;
 }

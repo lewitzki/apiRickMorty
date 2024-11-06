@@ -1,47 +1,62 @@
-.rotate {
-    width: 150px;
-    height: 150px;
-    background-color: blue;
+* {
+   
+  
+  
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+    background-image: url(rick-and-morty-rick-3840x2160-9368.jpg);
+    background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.fade {
-    width: 150px;
-    height: 150px;
-    background-color: orange;
-
+#nav-bar {
+    
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
-.visible {
-    animation: fade 2s ease-in-out
+#data-output {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+#data-output img {
+    width: 100%;
+    border-radius: 5px;
 }
 
-.pulse {
-    width: 150px;
-    height: 150px;
+#data-output ul {
     background-color: black;
+    color: rgb(255, 255, 255);
+    list-style: none;
+    padding: 10px;
+    margin: 15px;
+    
+    border-radius: 15px;
+    width: 200px;
+    text-align: center;
 }
 
-.pulsing {
-    animation: pilse 2s ease-in-out infinite;
+#data-output li {
+    margin: 10px;
 }
 
-@keyframes pulse {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.2);
-    }
-    100%{
-        transform: scale(1);
-    }
+.main-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+
 }
+
+.main-content ul:hover {
+    transform: scale(1.10);
+    animation: fire-animation 0.8s infinite alternate ease-in-out;
+
+}
+
+
